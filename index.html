@@ -1,0 +1,83 @@
+<!DOCTYPE html>
+<html>
+<head>
+  <title>News Reader</title>
+
+  <!-- styles -->
+  <link href="https://fonts.googleapis.com/icon?family=Material+Icons" rel="stylesheet">
+  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/materialize/1.0.0/css/materialize.min.css">
+  <link rel="stylesheet" href="style.css">
+  <!-- styles -->
+
+  <!-- scripts -->
+  <script src="https://cdnjs.cloudflare.com/ajax/libs/materialize/1.0.0/js/materialize.min.js"></script>
+  <script src="https://cdn.jsdelivr.net/npm/underscore@1.13.2/underscore-umd-min.js"></script>
+  <script src="https://cdnjs.cloudflare.com/ajax/libs/cash/8.1.0/cash.min.js"></script>
+  
+  <script src="script.js"></script>
+  <script src="sites/axios.js"></script>
+  <script src="sites/wapo.js"></script>
+  <!-- scripts -->
+  <meta name="viewport" content="width=device-width, initial-scale=1.0"/>
+</head>
+
+
+<body>
+  <div id="main-container" class="container">
+  <div class="row">
+    <div class="col s12">
+      <ul class="tabs">
+        <li class="tab col s3"><a href="#axios">Axios</a></li>
+        <li class="tab col s3"><a href="#wapo">Washington Post</a></li>
+        <li class="tab col s3"><a href="#test3">Test 3</a></li>
+        <li class="tab col s3"><a href="#test4">Test 4</a></li>
+      </ul>
+    </div>
+    <div id="axios" class="col s12 active">
+      <div class='row'>
+        <div id="stories-container-axios" class="col s12 m9 l10">
+          <div id="national-stories-container" class="scrollspy-axios"></div>
+        </div>
+        <div id="scroll-container-axios" class="col hide-on-small-only m3 l2">
+          <ul id="scrollspy-list-axios" class="section table-of-contents scrollspy-section">
+            <li><a href="#national-stories-container">national</a></li>
+          </ul>
+        </div>
+      </div>
+    </div>
+    <div id="wapo" class="col s12" style="display: none">
+      <div class='row'>
+        <div id="stories-container-wapo" class="col s12 m9 l10">
+        </div>
+        <div id="scroll-container-wapo" class="col hide-on-small-only m3 l2">
+          <ul id="scrollspy-list-wapo" class="section table-of-contents scrollspy-section">
+          </ul>
+        </div>
+      </div>
+
+
+    </div>
+    <div id="test3" class="col s12" style="display: none">Test 3</div>
+    <div id="test4" class="col s12" style="display: none">Test 4</div>
+  </div>
+        
+
+
+
+<!--     <div class='row'>
+      <a id="settings-button" class="waves-effect waves-light btn btn-floating"><i class="material-icons">settings</i></a>
+        <div id="settings-container" class="tap-target" data-target="settings-button">
+          <div class="tap-target-content">
+            <h5>Settings</h5>
+            <p>A bunch of text</p>
+          </div>
+        </div>
+    </div> -->
+
+            
+    <div class='row footer section'></div>
+  </div>
+
+
+</body>
+</html>

@@ -1,0 +1,114 @@
+function getWapoXML(){
+  fetch('https://api.factmaven.com/xml-to-json/?xml=https://www.washingtonpost.com/arcio/news-sitemap/')
+  .then(response => response.json())
+  .then(data => {
+    let allLinks = data.urlset.url;
+
+    let grouped = _.groupBy(allLinks, function(story){
+      let section = story.loc.split("https://www.washingtonpost.com/")[1].split("/")[0]
+      return section;
+    })
+
+    let allCategories = [];
+    let sortedCategories = _.sortBy(grouped, function(data, name){
+      if(name === 'kidspost' || name === 'washington-post-live' || name === 'obituaries' || name === 'es' || name === 'comics') {
+          console.log(name);
+      } else {   
+        allCategories.push(name);
+        return name;
+      }
+    })
+
+
+    let combine = _.zip(sortedCategories, allCategories.sort());
+
+    _.each(combine, function(sectionInfo){
+      if(!sectionInfo[1]) return;
+      let sectionElement = `<div id="${sectionInfo[1]}-stories-container-wapo" class="scrollspy-wapo section-container"></div>`
+      $('#stories-container-wapo').append(sectionElement);
+
+      $(`#${sectionInfo[1]}-stories-container-wapo`).append(`<div id="section-container-${sectionInfo[1]}-wapo" class="section-container"><h4>${sectionInfo[1]}</h4><div id="wapo-section-${sectionInfo[1]}-stories-container" class="section-stories-container">`)
+
+      _.each(sectionInfo[0], function(story){
+        let element = "<div class='story-container card-panel'>"
+        element += `<span><a href="${story.loc}" target="_blank">${story.news.title}</a></span>`
+        element +="</div>"
+        $(`#wapo-section-${sectionInfo[1]}-stories-container`).append(element)
+      })
+
+      $('#scrollspy-list-wapo').append(`<li><a href="#${sectionInfo[1]}-stories-container-wapo">${sectionInfo[1]}</a></li>`)
+    })
+
+    var elems = document.querySelectorAll('.scrollspy-wapo');
+      let scrollSpyOptions = {
+        throttle: 100,
+        scrollOffset: 200,
+        activeClass: 'active'
+      }
+
+      var scrollSpyInstances = M.ScrollSpy.init(elems, scrollSpyOptions);
+
+  }).catch(function (error) {
+    // if there's an error, log it
+    console.log(error);
+    getWapoXML();
+  })
+}
+
+function getWapoPage(){
+
+  let wapoNews = {};
+
+  Promise.all([
+    fetch('https://api.rss2json.com/v1/api.json?rss_url=http://feeds.washingtonpost.com/rss/politics'),
+    fetch('https://api.rss2json.com/v1/api.json?rss_url=http://feeds.washingtonpost.com/rss/national'),
+    fetch('https://api.rss2json.com/v1/api.json?rss_url=http://feeds.washingtonpost.com/rss/world'),
+    fetch('https://api.rss2json.com/v1/api.json?rss_url=http://feeds.washingtonpost.com/rss/business'),
+    fetch('https://api.rss2json.com/v1/api.json?rss_url=http://feeds.washingtonpost.com/rss/lifestyle'),
+  ])
+  .then(function (responses) {
+    return Promise.all(responses.map(function (response) {
+      return response.json();
+    }));
+  }).then(function (data) {
+    _.each(data, function(section){
+      let sectionName = section.feed.title;
+      wapoNews[sectionName] = section.items;
+    })
+
+    _.each(wapoNews, function(sectionStories, sectionName){
+      let sectionElement = `<div id="${sectionName}-stories-container-wapo" class="scrollspy-wapo section-container"></div>`
+      $('#stories-container-wapo').append(sectionElement);
+
+      $(`#${sectionName}-stories-container-wapo`).append(`<div id="section-container-${sectionName}-wapo" class="section-container"><h4>${sectionName}</h4><div id="wapo-section-${sectionName}-stories-container" class="section-stories-container">`)
+
+      _.each(sectionStories, function(story){
+        let cleanLink = story.link.split("?")[0];
+        let element = "<div class='story-container card-panel'>"
+        element += `<span><a href="${cleanLink}" target="_blank">${story.title}</a></span>`
+        element +="</div>"
+        $(`#wapo-section-${sectionName}-stories-container`).append(element)
+      })
+
+      $('#scrollspy-list-wapo').append(`<li><a href="#${sectionName}-stories-container-wapo">${sectionName}</a></li>`)
+    })
+  }).catch(function (error) {
+    // if there's an error, log it
+    console.log(error);
+  })
+  .then(() => {
+    var elems = document.querySelectorAll('.scrollspy-wapo');
+      let scrollSpyOptions = {
+        throttle: 100,
+        scrollOffset: 200,
+        activeClass: 'active'
+      }
+
+      console.log(elems);
+      var scrollSpyInstances = M.ScrollSpy.init(elems, scrollSpyOptions);
+
+
+      // var elems = document.querySelectorAll('.tap-target');
+      // var settings = M.TapTarget.init(elems, {});
+  });  
+}

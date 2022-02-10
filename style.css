@@ -1,0 +1,83 @@
+body{
+  background: #FAF9F8;
+  padding: 16px;
+}
+
+
+.story-container {
+  height: 170px;
+  /*border: 1px solid #9E8B95;*/
+  width:250px;
+  margin-top: 16px;
+  text-align: center;
+  font-size: 1.2em;
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  padding: 10px;
+}
+
+
+.story-container a {
+  text-decoration: none;
+  color: #5C5585;
+  /*background: #F1F7F9;*/
+}
+
+
+.story-container a:visited {
+  color: #ADAEC9;
+  /*background: #F1F7F9;*/
+}
+
+
+.location-container,
+.section-container {
+  width: 100%;
+  display: flex;
+  flex-wrap: wrap;
+  flex-direction: column;
+}
+
+
+
+#stories-container-axios,
+.location-stories-container,
+#national-stories-container,
+.section-stories-container,
+.section-container {
+  display: flex;
+  flex-wrap: wrap;
+  justify-content: space-evenly;
+}
+
+
+.footer {
+  min-height: 400px;
+}
+
+
+#scroll-container-axios,
+.scrollspy-section {
+  position: fixed;
+  right: 40px;
+}
+
+
+#settings-button {
+  position: fixed;
+  bottom: 50px;
+  right: 30px;
+}
+
+
+#settings-container.tap-target {
+  border-radius: 20%;
+}
+
+
+@media only screen and (min-width: 993px) {
+  #main-container {
+    width: 85%;
+  }
+}
