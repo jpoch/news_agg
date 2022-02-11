@@ -2,6 +2,7 @@ let hasAxiosLoaded = false;
 let hasWapoLoaded = false;
 let hasMwLoaded = false;
 let hasNytLoaded = false;
+let hasPhillyLoaded = false;
 
 document.addEventListener("DOMContentLoaded", function(){
   
@@ -46,6 +47,12 @@ function getPage(hash){
       if(!hasNytLoaded){
         getNyt()
         hasNytLoaded = true;
+      }
+      break;
+     case '#philly':
+      if(!hasPhillyLoaded){
+        getPhilly()
+        hasPhillyLoaded = true;
       }
       break;
     default:
