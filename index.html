@@ -16,6 +16,8 @@
   <script src="script.js"></script>
   <script src="sites/axios.js"></script>
   <script src="sites/wapo.js"></script>
+  <script src="sites/marketwatch.js"></script>
+  <script src="sites/nyt.js"></script>
   <!-- scripts -->
   <meta name="viewport" content="width=device-width, initial-scale=1.0"/>
 </head>
@@ -27,25 +29,35 @@
     <div class="col s12">
       <ul class="tabs">
         <li class="tab col s3"><a href="#axios">Axios</a></li>
-        <li class="tab col s3"><a href="#wapo">Washington Post</a></li>
-        <li class="tab col s3"><a href="#test3">Test 3</a></li>
-        <li class="tab col s3"><a href="#test4">Test 4</a></li>
+        <li class="tab col s3"><a href="#wapo">WPost</a></li>
+        <li class="tab col s3"><a href="#marketwatch">MW</a></li>
+        <li class="tab col s3"><a href="#nyt">NYT</a></li>
       </ul>
     </div>
     <div id="axios" class="col s12 active">
-      <div class='row'>
-        <div id="stories-container-axios" class="col s12 m9 l10">
-          <div id="national-stories-container" class="scrollspy-axios"></div>
-        </div>
+      <div class='row content-row'>
+        <div id="stories-container-axios" class="col s12 m9 l10"></div>
         <div id="scroll-container-axios" class="col hide-on-small-only m3 l2">
           <ul id="scrollspy-list-axios" class="section table-of-contents scrollspy-section">
-            <li><a href="#national-stories-container">national</a></li>
           </ul>
+        </div>
+      </div>
+      <div id="preloader-wrapper-axios" class='row preloader-wrapper-container'>
+        <div class="preloader-wrapper big active ">
+          <div class="spinner-layer spinner-blue-only">
+            <div class="circle-clipper left">
+              <div class="circle"></div>
+            </div><div class="gap-patch">
+              <div class="circle"></div>
+            </div><div class="circle-clipper right">
+              <div class="circle"></div>
+            </div>
+          </div>
         </div>
       </div>
     </div>
     <div id="wapo" class="col s12" style="display: none">
-      <div class='row'>
+      <div class='row content-row'>
         <div id="stories-container-wapo" class="col s12 m9 l10">
         </div>
         <div id="scroll-container-wapo" class="col hide-on-small-only m3 l2">
@@ -53,11 +65,67 @@
           </ul>
         </div>
       </div>
-
+      <div id="preloader-wrapper-wapo" class='row preloader-wrapper-container'>
+        <div class="preloader-wrapper big active ">
+          <div class="spinner-layer spinner-blue-only">
+            <div class="circle-clipper left">
+              <div class="circle"></div>
+            </div><div class="gap-patch">
+              <div class="circle"></div>
+            </div><div class="circle-clipper right">
+              <div class="circle"></div>
+            </div>
+          </div>
+        </div>
+      </div>
+    </div>
+    <div id="marketwatch" class="col s12" style="display: none">
+      <div class='row content-row'>
+        <div id="stories-container-mw" class="col s12 m12 l12 section-stories-container">
+        </div>
+<!--         <div id="scroll-container-mw" class="col hide-on-small-only m3 l2">
+          <ul id="scrollspy-list-mw" class="section table-of-contents scrollspy-section">
+          </ul>
+        </div> -->
+      </div>
+      <div id="preloader-wrapper-mw" class='row preloader-wrapper-container'>
+        <div class="preloader-wrapper big active ">
+          <div class="spinner-layer spinner-blue-only">
+            <div class="circle-clipper left">
+              <div class="circle"></div>
+            </div><div class="gap-patch">
+              <div class="circle"></div>
+            </div><div class="circle-clipper right">
+              <div class="circle"></div>
+            </div>
+          </div>
+        </div>
+      </div>
 
     </div>
-    <div id="test3" class="col s12" style="display: none">Test 3</div>
-    <div id="test4" class="col s12" style="display: none">Test 4</div>
+    <div id="nyt" class="col s12" style="display: none">
+      <div class='row content-row'>
+        <div id="stories-container-nyt" class="col s12 m9 l10">
+        </div>
+        <div id="scroll-container-nyt" class="col hide-on-small-only m3 l2">
+          <ul id="scrollspy-list-nyt" class="section table-of-contents scrollspy-section">
+          </ul>
+        </div>
+      </div>
+      <div id="preloader-wrapper-nyt" class='row preloader-wrapper-container'>
+        <div class="preloader-wrapper big active ">
+          <div class="spinner-layer spinner-blue-only">
+            <div class="circle-clipper left">
+              <div class="circle"></div>
+            </div><div class="gap-patch">
+              <div class="circle"></div>
+            </div><div class="circle-clipper right">
+              <div class="circle"></div>
+            </div>
+          </div>
+        </div>
+      </div>
+    </div>
   </div>
         
 

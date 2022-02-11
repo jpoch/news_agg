@@ -1,5 +1,8 @@
 function getWapoXML(){
-  fetch('https://api.factmaven.com/xml-to-json/?xml=https://www.washingtonpost.com/arcio/news-sitemap/')
+
+  $('#wapo .content-row').css('display', 'none');
+
+  fetch('https://api.factmaven.com/xml-to-json/?xml=https://www.washingtonpost.com/arcio/news-sitemap/?size=250&offset=0')
   .then(response => response.json())
   .then(data => {
     let allLinks = data.urlset.url;
@@ -11,7 +14,7 @@ function getWapoXML(){
 
     let allCategories = [];
     let sortedCategories = _.sortBy(grouped, function(data, name){
-      if(name === 'kidspost' || name === 'washington-post-live' || name === 'obituaries' || name === 'es' || name === 'comics') {
+      if(name === 'kidspost' || name === 'washington-post-live' || name === 'obituaries' || name === 'es' || name === 'comics' || name === 'podcasts' || name === 'goingoutguide') {
           console.log(name);
       } else {   
         allCategories.push(name);
@@ -48,6 +51,9 @@ function getWapoXML(){
 
       var scrollSpyInstances = M.ScrollSpy.init(elems, scrollSpyOptions);
 
+      $('.preloader-wrapper-wapo').css('display', 'none')
+      $('#wapo .content-row').css('display', 'block');
+
   }).catch(function (error) {
     // if there's an error, log it
     console.log(error);
@@ -55,6 +61,10 @@ function getWapoXML(){
   })
 }
 
+
+
+
+// for using rss feed, not used now
 function getWapoPage(){
 
   let wapoNews = {};
@@ -104,9 +114,7 @@ function getWapoPage(){
         activeClass: 'active'
       }
 
-      console.log(elems);
       var scrollSpyInstances = M.ScrollSpy.init(elems, scrollSpyOptions);
-
 
       // var elems = document.querySelectorAll('.tap-target');
       // var settings = M.TapTarget.init(elems, {});

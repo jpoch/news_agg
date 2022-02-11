@@ -2,6 +2,7 @@ function getAxiosPage(){
   //settings
 let maxNationalStories = 60;
 
+$('#axios .content-row').css('display', 'none');
 
 //get data
 fetch('https://api.factmaven.com/xml-to-json/?xml=https://www.axios.com/sitemaps/news.xml')
@@ -18,6 +19,8 @@ fetch('https://api.factmaven.com/xml-to-json/?xml=https://www.axios.com/sitemaps
       return 'national'
     }
   })
+
+  $('#stories-container-axios').append(`<div id="national-container" class="scrollspy-axios location-container"><h4>National</h4><div class="stories-container" id="national-stories-container">`)
 
 
   let counter = 0
@@ -69,6 +72,8 @@ fetch('https://api.factmaven.com/xml-to-json/?xml=https://www.axios.com/sitemaps
 })
 
 
+  $('#scrollspy-list-axios').append(`<li><a href="#national-container">national</a></li>`)
+
   _.each(allCities, function(city) {
   //add link for the location to the scrollspy
     $('#scrollspy-list-axios').append(`<li><a href="#location-container-${city}">${city}</a></li>`)
@@ -95,7 +100,9 @@ fetch('https://api.factmaven.com/xml-to-json/?xml=https://www.axios.com/sitemaps
   }
 
 
-  $('#settings-button').on('click', toggleSettings)
+  // $('#settings-button').on('click', toggleSettings)
+  $('.preloader-wrapper-axios').css('display', 'none')
+  $('#axios .content-row').css('display', 'block');
 
   }); //then end
 

@@ -1,6 +1,7 @@
 let hasAxiosLoaded = false;
 let hasWapoLoaded = false;
-
+let hasMwLoaded = false;
+let hasNytLoaded = false;
 
 document.addEventListener("DOMContentLoaded", function(){
   
@@ -10,9 +11,8 @@ document.addEventListener("DOMContentLoaded", function(){
   //add event for tab click
   $('.tab').on('click', tabClicked)
 
-
   let firstTabHash = $('.tab').first()[0].firstChild.hash;
-  // console.log(firstTabHash);
+
   getPage(firstTabHash);
   getPage('#wapo');
 });
@@ -36,10 +36,23 @@ function getPage(hash){
         hasWapoLoaded = true;
       }
       break;
+    case '#marketwatch':
+      if(!hasMwLoaded){
+        getMarketwatch()
+        hasMwLoaded = true;
+      }
+      break;
+    case '#nyt':
+      if(!hasNytLoaded){
+        getNyt()
+        hasNytLoaded = true;
+      }
+      break;
     default:
       console.log("default");
   }
 }
+
 
 
 
