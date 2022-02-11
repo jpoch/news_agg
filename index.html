@@ -18,6 +18,7 @@
   <script src="sites/wapo.js"></script>
   <script src="sites/marketwatch.js"></script>
   <script src="sites/nyt.js"></script>
+  <script src="sites/philly.js"></script>
   <!-- scripts -->
   <meta name="viewport" content="width=device-width, initial-scale=1.0"/>
 </head>
@@ -32,6 +33,7 @@
         <li class="tab col s3"><a href="#wapo">WPost</a></li>
         <li class="tab col s3"><a href="#marketwatch">MW</a></li>
         <li class="tab col s3"><a href="#nyt">NYT</a></li>
+        <li class="tab col s3"><a href="#philly">Philly</a></li>
       </ul>
     </div>
     <div id="axios" class="col s12 active">
@@ -113,6 +115,29 @@
         </div>
       </div>
       <div id="preloader-wrapper-nyt" class='row preloader-wrapper-container'>
+        <div class="preloader-wrapper big active ">
+          <div class="spinner-layer spinner-blue-only">
+            <div class="circle-clipper left">
+              <div class="circle"></div>
+            </div><div class="gap-patch">
+              <div class="circle"></div>
+            </div><div class="circle-clipper right">
+              <div class="circle"></div>
+            </div>
+          </div>
+        </div>
+      </div>
+    </div>
+    <div id="philly" class="col s12" style="display: none">
+      <div class='row content-row'>
+        <div id="stories-container-philly" class="col s12 m9 l10">
+        </div>
+        <div id="scroll-container-philly" class="col hide-on-small-only m3 l2">
+          <ul id="scrollspy-list-philly" class="section table-of-contents scrollspy-section">
+          </ul>
+        </div>
+      </div>
+      <div id="preloader-wrapper-philly" class='row preloader-wrapper-container'>
         <div class="preloader-wrapper big active ">
           <div class="spinner-layer spinner-blue-only">
             <div class="circle-clipper left">

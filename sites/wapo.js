@@ -51,7 +51,7 @@ function getWapoXML(){
 
       var scrollSpyInstances = M.ScrollSpy.init(elems, scrollSpyOptions);
 
-      $('.preloader-wrapper-wapo').css('display', 'none')
+      $('#preloader-wrapper-wapo').css('display', 'none')
       $('#wapo .content-row').css('display', 'block');
 
   }).catch(function (error) {

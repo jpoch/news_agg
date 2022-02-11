@@ -13,8 +13,9 @@ document.addEventListener("DOMContentLoaded", function(){
 
   let firstTabHash = $('.tab').first()[0].firstChild.hash;
 
-  getPage(firstTabHash);
-  getPage('#wapo');
+  // getPage(firstTabHash);
+  // getPage('#wapo');
+  getPhilly();
 });
 
 

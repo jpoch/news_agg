@@ -16,7 +16,7 @@ function getMarketwatch(){
       $(`#stories-container-mw`).append(element)
     })
 
-    $('.preloader-wrapper-mw').css('display', 'none')
+    $('#preloader-wrapper-mw').css('display', 'none')
     $('#mw .content-row').css('display', 'block');
 
   }).catch(function (error) {

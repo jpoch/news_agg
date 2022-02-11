@@ -57,7 +57,7 @@ function getNyt(){
 
       var scrollSpyInstances = M.ScrollSpy.init(elems, scrollSpyOptions);
 
-      $('.preloader-wrapper-nyt').css('display', 'none')
+      $('#preloader-wrapper-nyt').css('display', 'none')
       $('#nyt .content-row').css('display', 'block');
 
   }).catch(function (error) {

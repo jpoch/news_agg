@@ -101,7 +101,7 @@ fetch('https://api.factmaven.com/xml-to-json/?xml=https://www.axios.com/sitemaps
 
 
   // $('#settings-button').on('click', toggleSettings)
-  $('.preloader-wrapper-axios').css('display', 'none')
+  $('#preloader-wrapper-axios').css('display', 'none')
   $('#axios .content-row').css('display', 'block');
 
   }); //then end
