@@ -46,7 +46,7 @@ function getPhilly(){
       let sectionElement = `<div id="${sectionInfo[1]}-stories-container-philly" class="scrollspy-philly section-container"></div>`
       $('#stories-container-philly').append(sectionElement);
 
-      $(`#${sectionInfo[1]}-stories-container-philly`).append(`<div id="section-container-${sectionInfo[1]}-philly" class="section-container"><h4>${sectionInfo[1]}</h4><div id="philly-section-${sectionInfo[1]}-stories-container" class="section-stories-container">`)
+      $(`#${sectionInfo[1]}-stories-container-philly`).append(`<div id="section-container-${sectionInfo[1]}-philly" class="section-container"><h4 class="section-header">${sectionInfo[1]}</h4><div id="philly-section-${sectionInfo[1]}-stories-container" class="section-stories-container">`)
 
       _.each(sectionInfo[0], function(story){
         let element = "<div class='story-container card-panel'>"
@@ -70,7 +70,21 @@ function getPhilly(){
     $('#preloader-wrapper-philly').css('display', 'none')
     $('#philly .content-row').css('display', 'block');
 
+    $('.section-header').on('click', function(some, thing){
+        let sectionName = some.target.innerHTML;
+        let isSectionHidden = $(`#philly-section-${sectionName}-stories-container`).hasClass('hide-section')
+        if(isSectionHidden){
+          $(`#philly-section-${sectionName}-stories-container`).removeClass('hide-section');
+          $(some.srcElement).removeClass('hide-section');
+        } else {
+          $(`#philly-section-${sectionName}-stories-container`).addClass('hide-section');
+          $(some.srcElement).addClass('hide-section');
+        }
+      })
+
   }).catch(function (error) {
     console.log(error);
   })
 }
+
+

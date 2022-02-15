@@ -86,6 +86,15 @@ body{
   border-radius: 20%;
 }
 
+.section-stories-container.hide-section,
+.location-stories-container.hide-section  {
+  display: none !important;
+}
+
+.section-header.hide-section {
+  color: #ADAEC9;
+}
+
 
 @media only screen and (min-width: 993px) {
   #main-container {

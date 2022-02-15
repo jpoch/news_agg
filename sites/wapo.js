@@ -30,7 +30,7 @@ function getWapoXML(){
       let sectionElement = `<div id="${sectionInfo[1]}-stories-container-wapo" class="scrollspy-wapo section-container"></div>`
       $('#stories-container-wapo').append(sectionElement);
 
-      $(`#${sectionInfo[1]}-stories-container-wapo`).append(`<div id="section-container-${sectionInfo[1]}-wapo" class="section-container"><h4>${sectionInfo[1]}</h4><div id="wapo-section-${sectionInfo[1]}-stories-container" class="section-stories-container">`)
+      $(`#${sectionInfo[1]}-stories-container-wapo`).append(`<div id="section-container-${sectionInfo[1]}-wapo" class="section-container"><h4 class="section-header">${sectionInfo[1]}</h4><div id="wapo-section-${sectionInfo[1]}-stories-container" class="section-stories-container">`)
 
       _.each(sectionInfo[0], function(story){
         let element = "<div class='story-container card-panel'>"
@@ -53,6 +53,18 @@ function getWapoXML(){
 
       $('#preloader-wrapper-wapo').css('display', 'none')
       $('#wapo .content-row').css('display', 'block');
+
+      $('.section-header').on('click', function(some, thing){
+        let sectionName = some.target.innerHTML;
+        let isSectionHidden = $(`#wapo-section-${sectionName}-stories-container`).hasClass('hide-section')
+        if(isSectionHidden){
+          $(`#wapo-section-${sectionName}-stories-container`).removeClass('hide-section');
+          $(some.srcElement).removeClass('hide-section');
+        } else {
+          $(`#wapo-section-${sectionName}-stories-container`).addClass('hide-section');
+          $(some.srcElement).addClass('hide-section');
+        }
+      })
 
   }).catch(function (error) {
     // if there's an error, log it

@@ -20,7 +20,7 @@ fetch('https://api.factmaven.com/xml-to-json/?xml=https://www.axios.com/sitemaps
     }
   })
 
-  $('#stories-container-axios').append(`<div id="national-container" class="scrollspy-axios location-container"><h4>National</h4><div class="stories-container" id="national-stories-container">`)
+  $('#stories-container-axios').append(`<div id="national-container" class="scrollspy-axios location-container"><h4 class="section-header">national</h4><div class="location-stories-container stories-container location-stories-container-national" id="national-stories-container">`)
 
 
   let counter = 0
@@ -53,7 +53,7 @@ fetch('https://api.factmaven.com/xml-to-json/?xml=https://www.axios.com/sitemaps
   let combine = _.zip(sortedLocal, allCities.sort());
   _.each(combine, function(locationInfo){
   //add location section to stories container
-  $('#stories-container-axios').append(`<div id="location-container-${locationInfo[1]}" class="scrollspy-axios location-container"><h4>${locationInfo[1]}</h4><div class="location-stories-container location-stories-container-${locationInfo[1]}">`)
+  $('#stories-container-axios').append(`<div id="location-container-${locationInfo[1]}" class="scrollspy-axios location-container"><h4 class="section-header section-header-${locationInfo[1]}">${locationInfo[1]}</h4><div class="location-stories-container location-stories-container-${locationInfo[1]}">`)
 
 
   //loop through to add stories to location container
@@ -103,6 +103,19 @@ fetch('https://api.factmaven.com/xml-to-json/?xml=https://www.axios.com/sitemaps
   // $('#settings-button').on('click', toggleSettings)
   $('#preloader-wrapper-axios').css('display', 'none')
   $('#axios .content-row').css('display', 'block');
+
+  $('.section-header').on('click', function(some, thing){
+        let sectionName = some.target.innerHTML;
+        let isSectionHidden = $(`.location-stories-container-${sectionName}`).hasClass('hide-section')
+        if(isSectionHidden){
+          $(`.location-stories-container-${sectionName}`).removeClass('hide-section');
+          console.log(some)
+          $(some.srcElement).removeClass('hide-section');
+        } else {
+          $(`.location-stories-container-${sectionName}`).addClass('hide-section');
+          $(some.srcElement).addClass('hide-section');
+        }
+      })
 
   }); //then end
 

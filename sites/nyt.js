@@ -17,6 +17,7 @@ function getNyt(){
       }
     })
 
+
     let allCategories = [];
     let sortedCategories = _.sortBy(grouped, function(data, name){
       if(name === 'briefing' || name === 'learning' || name === 'obituaries' || name === 'crosswords' || name === 'todayspaper' || name === undefined) {
@@ -35,7 +36,7 @@ function getNyt(){
       let sectionElement = `<div id="${sectionInfo[1]}-stories-container-nyt" class="scrollspy-nyt section-container"></div>`
       $('#stories-container-nyt').append(sectionElement);
 
-      $(`#${sectionInfo[1]}-stories-container-nyt`).append(`<div id="section-container-${sectionInfo[1]}-nyt" class="section-container"><h4>${sectionInfo[1]}</h4><div id="nyt-section-${sectionInfo[1]}-stories-container" class="section-stories-container">`)
+      $(`#${sectionInfo[1]}-stories-container-nyt`).append(`<div id="section-container-${sectionInfo[1]}-nyt" class="section-container"><h4 class="section-header">${sectionInfo[1]}</h4><div id="nyt-section-${sectionInfo[1]}-stories-container" class="section-stories-container">`)
 
       _.each(sectionInfo[0], function(story){
         let element = "<div class='story-container card-panel'>"
@@ -59,6 +60,18 @@ function getNyt(){
 
       $('#preloader-wrapper-nyt').css('display', 'none')
       $('#nyt .content-row').css('display', 'block');
+
+      $('.section-header').on('click', function(some, thing){
+        let sectionName = some.target.innerHTML;
+        let isSectionHidden = $(`#nyt-section-${sectionName}-stories-container`).hasClass('hide-section')
+        if(isSectionHidden){
+          $(`#nyt-section-${sectionName}-stories-container`).removeClass('hide-section');
+          $(some.srcElement).removeClass('hide-section');
+        } else {
+          $(`#nyt-section-${sectionName}-stories-container`).addClass('hide-section');
+          $(some.srcElement).addClass('hide-section');
+        }
+      })
 
   }).catch(function (error) {
     console.log(error);
