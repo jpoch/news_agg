@@ -4,6 +4,7 @@ let hasMwLoaded = false;
 let hasNytLoaded = false;
 let hasPhillyLoaded = false;
 let hasConversationLoaded = false;
+let hasWiredLoaded = false;
 
 document.addEventListener("DOMContentLoaded", function(){
   
@@ -61,6 +62,12 @@ function getPage(hash){
     if(!hasConversationLoaded){
       getConversation()
       hasConversationLoaded = true;
+    }
+    break;
+    case '#wired':
+    if(!hasWiredLoaded){
+      getWired()
+      hasWiredLoaded = true;
     }
     break;
     default:
