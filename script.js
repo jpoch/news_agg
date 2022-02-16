@@ -3,6 +3,7 @@ let hasWapoLoaded = false;
 let hasMwLoaded = false;
 let hasNytLoaded = false;
 let hasPhillyLoaded = false;
+let hasConversationLoaded = false;
 
 document.addEventListener("DOMContentLoaded", function(){
   
@@ -24,39 +25,46 @@ function tabClicked(tabInfo){
 }
 
 function getPage(hash){
+  ///todo: fix flag so it does not set to true unless data loaded success instead of assuming it is OK.
   switch (hash) {
     case '#axios':
-      if(!hasAxiosLoaded){
-        getAxiosPage()
-        hasAxiosLoaded = true;
-      }
-      break;
+    if(!hasAxiosLoaded){
+      getAxiosPage()
+      hasAxiosLoaded = true;
+    }
+    break;
     case '#wapo':
-      if(!hasWapoLoaded){
-        getWapoXML()
-        hasWapoLoaded = true;
-      }
-      break;
+    if(!hasWapoLoaded){
+      getWapoXML()
+      hasWapoLoaded = true;
+    }
+    break;
     case '#marketwatch':
-      if(!hasMwLoaded){
-        getMarketwatch()
-        hasMwLoaded = true;
-      }
-      break;
+    if(!hasMwLoaded){
+      getMarketwatch()
+      hasMwLoaded = true;
+    }
+    break;
     case '#nyt':
-      if(!hasNytLoaded){
-        getNyt()
-        hasNytLoaded = true;
-      }
-      break;
-     case '#philly':
-      if(!hasPhillyLoaded){
-        getPhilly()
-        hasPhillyLoaded = true;
-      }
-      break;
+    if(!hasNytLoaded){
+      getNyt()
+      hasNytLoaded = true;
+    }
+    break;
+    case '#philly':
+    if(!hasPhillyLoaded){
+      getPhilly()
+      hasPhillyLoaded = true;
+    }
+    break;
+    case '#conversation':
+    if(!hasConversationLoaded){
+      getConversation()
+      hasConversationLoaded = true;
+    }
+    break;
     default:
-      console.log("default");
+    console.log("default");
   }
 }
 
