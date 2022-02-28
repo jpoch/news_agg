@@ -14,7 +14,7 @@ function getConversation(){
       return response.json();
     }));
   }).then(function (data) {
-    
+
     let allData = [
       {name: "united-states", stories: data[0].urlset.url}, 
       {name: "canada", stories: data[1].urlset.url},
@@ -30,10 +30,12 @@ function getConversation(){
       $(`#${sectionInfo.name}-stories-container-conversation`).append(`<div id="section-container-${sectionInfo.name}-conversation" class="section-container"><h4 class="section-header">${sectionInfo.name}</h4><div id="conversation-section-${sectionInfo.name}-stories-container" class="section-stories-container">`)
 
       _.each(sectionInfo.stories, function(story){
-        let element = "<div class='story-container card-panel'>"
+        if(story.news && story.loc){
+          let element = "<div class='story-container card-panel'>"
         element += `<span><a href="${story.loc}" target="_blank">${story.news.title}</a></span>`
         element +="</div>"
         $(`#conversation-section-${sectionInfo.name}-stories-container`).append(element)
+        }
       })
 
       $('#scrollspy-list-conversation').append(`<li><a href="#${sectionInfo.name}-stories-container-conversation">${sectionInfo.name}</a></li>`)

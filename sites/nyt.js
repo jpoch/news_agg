@@ -30,8 +30,11 @@ function getNyt(){
 
 
     let combine = _.zip(sortedCategories, allCategories.sort());
+    console.log(combine);
 
     _.each(combine, function(sectionInfo){
+      console.log(sectionInfo);
+      console.log(sectionInfo[1]);
       if(sectionInfo[1] === 'undefined' || !sectionInfo[1]) return;
       let sectionElement = `<div id="${sectionInfo[1]}-stories-container-nyt" class="scrollspy-nyt section-container"></div>`
       $('#stories-container-nyt').append(sectionElement);
