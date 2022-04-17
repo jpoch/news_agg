@@ -21,6 +21,7 @@
   <script src="sites/philly.js"></script>
   <script src="sites/conversation.js"></script>
   <script src="sites/wired.js"></script>
+  <script src="sites/politico.js"></script>
   <!-- scripts -->
   <meta name="viewport" content="width=device-width, initial-scale=1.0"/>
 </head>
@@ -38,6 +39,7 @@
         <li class="tab col"><a href="#philly">Philly</a></li>
         <li class="tab col"><a href="#conversation">Conversation</a></li>
         <li class="tab col"><a href="#wired">Wired</a></li>
+        <li class="tab col"><a href="#politico">Politico</a></li>
       </ul>
     </div>
     <div id="axios" class="col s12 active">
@@ -178,12 +180,31 @@
         </div>
       </div>
     </div>
-        <div id="wired" class="col s12" style="display: none">
+    <div id="wired" class="col s12" style="display: none">
       <div class='row content-row'>
         <div id="stories-container-wired" class="col s12 m12 l12 section-stories-container">
         </div>
       </div>
       <div id="preloader-wrapper-wired" class='row preloader-wrapper-container'>
+        <div class="preloader-wrapper big active ">
+          <div class="spinner-layer spinner-blue-only">
+            <div class="circle-clipper left">
+              <div class="circle"></div>
+            </div><div class="gap-patch">
+              <div class="circle"></div>
+            </div><div class="circle-clipper right">
+              <div class="circle"></div>
+            </div>
+          </div>
+        </div>
+      </div>
+    </div>
+    <div id="politico" class="col s12" style="display: none">
+      <div class='row content-row'>
+        <div id="stories-container-politico" class="col s12 m12 l12 section-stories-container">
+        </div>
+      </div>
+      <div id="preloader-wrapper-politico" class='row preloader-wrapper-container'>
         <div class="preloader-wrapper big active ">
           <div class="spinner-layer spinner-blue-only">
             <div class="circle-clipper left">

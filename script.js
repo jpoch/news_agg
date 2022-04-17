@@ -5,6 +5,7 @@ let hasNytLoaded = false;
 let hasPhillyLoaded = false;
 let hasConversationLoaded = false;
 let hasWiredLoaded = false;
+let hasPoliticoLoaded = false;
 
 document.addEventListener("DOMContentLoaded", function(){
   
@@ -68,6 +69,12 @@ function getPage(hash){
     if(!hasWiredLoaded){
       getWired()
       hasWiredLoaded = true;
+    }
+    break;
+    case '#politico':
+    if(!hasPoliticoLoaded){
+      getPolitico()
+      hasPoliticoLoaded = true;
     }
     break;
     default:
