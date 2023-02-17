@@ -1,8 +1,10 @@
 function getWapoXML(){
 
   $('#wapo .content-row').css('display', 'none');
+  $('#preloader-wrapper-wapo .preloader-wrapper').css('display', 'block')
+  $('#preloader-wrapper-wapo #wapo-retry-button').css('display', 'none')
 
-fetch('https://xml-json-alpha.vercel.app/api?xml=https://www.washingtonpost.com/arcio/news-sitemap/?size=250&offset=0')
+fetch('https://xml-json-alpha.vercel.app/api?xml=https://www.washingtonpost.com/arcio/news-sitemap/')
   // fetch('https://api.factmaven.com/xml-to-json/?xml=https://www.washingtonpost.com/arcio/news-sitemap/?size=250&offset=0')
   .then(response => response.json())
   .then(data => {
@@ -70,6 +72,8 @@ fetch('https://xml-json-alpha.vercel.app/api?xml=https://www.washingtonpost.com/
   }).catch(function (error) {
     // if there's an error, log it
     console.log(error);
+    $('#preloader-wrapper-wapo .preloader-wrapper').css('display', 'none')
+    $('#preloader-wrapper-wapo #wapo-retry-button').css('display', 'block')
     // getWapoXML();
   })
 }
