@@ -70,7 +70,7 @@ fetch('https://xml-json-alpha.vercel.app/api?xml=https://www.washingtonpost.com/
   }).catch(function (error) {
     // if there's an error, log it
     console.log(error);
-    getWapoXML();
+    // getWapoXML();
   })
 }
 
