@@ -2,7 +2,8 @@ function getWired(){
 
   $('#wired .content-row').css('display', 'none');
 
-  fetch('https://api.factmaven.com/xml-to-json/?xml=https://www.wired.com/feed/google-latest-news/sitemap-google-news')
+fetch('https://xml-json-alpha.vercel.app/api?xml=https://www.wired.com/feed/google-latest-news/sitemap-google-news')
+  // fetch('https://api.factmaven.com/xml-to-json/?xml=https://www.wired.com/feed/google-latest-news/sitemap-google-news')
   .then(response => response.json())
   .then(data => {
 

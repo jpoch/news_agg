@@ -2,8 +2,8 @@ function getNyt(){
 
   $('#nyt .content-row').css('display', 'none');
 
-
-  fetch('https://api.factmaven.com/xml-to-json/?xml=https://www.nytimes.com/sitemaps/new/news-1.xml.gz')
+fetch('https://xml-json-alpha.vercel.app/api?xml=https://www.nytimes.com/sitemaps/new/news-1.xml.gz')
+  // fetch('https://api.factmaven.com/xml-to-json/?xml=https://www.nytimes.com/sitemaps/new/news-1.xml.gz')
   .then(response => response.json())
   .then(data => {
 

@@ -2,7 +2,8 @@ function getMarketwatch(){
 
   $('#mw .content-row').css('display', 'none');
 
-  fetch('https://api.factmaven.com/xml-to-json/?xml=https://www.marketwatch.com/mw_news_sitemap.xml')
+fetch('https://xml-json-alpha.vercel.app/api?xml=https://www.marketwatch.com/mw_news_sitemap.xml')
+  // fetch('https://api.factmaven.com/xml-to-json/?xml=https://www.marketwatch.com/mw_news_sitemap.xml')
   .then(response => response.json())
   .then(data => {
 

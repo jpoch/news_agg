@@ -2,7 +2,9 @@ function getPolitico(){
 
   $('#politico .content-row').css('display', 'none');
 
-  fetch('https://api.factmaven.com/xml-to-json/?xml=https://www.politico.com/news-sitemap.xml')
+
+fetch('https://xml-json-alpha.vercel.app/api?xml=https://www.politico.com/news-sitemap.xml')
+  // fetch('https://api.factmaven.com/xml-to-json/?xml=https://www.politico.com/news-sitemap.xml')
   .then(response => response.json())
   .then(data => {
 

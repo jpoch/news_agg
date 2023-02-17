@@ -2,7 +2,9 @@ function getPhilly(){
 
   $('#philly .content-row').css('display', 'none');
 
-  fetch('https://api.factmaven.com/xml-to-json/?xml=https://www.inquirer.com/sitemaps/48hour-news-sitemap-i.xml')
+
+fetch('https://xml-json-alpha.vercel.app/api?xml=https://www.inquirer.com/sitemaps/48hour-news-sitemap-i.xml')
+  // fetch('https://api.factmaven.com/xml-to-json/?xml=https://www.inquirer.com/sitemaps/48hour-news-sitemap-i.xml')
   .then(response => response.json())
   .then(data => {
 

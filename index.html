@@ -22,6 +22,7 @@
   <script src="sites/conversation.js"></script>
   <script src="sites/wired.js"></script>
   <script src="sites/politico.js"></script>
+  <script src="sites/npr.js"></script>
   <!-- scripts -->
   <meta name="viewport" content="width=device-width, initial-scale=1.0"/>
 </head>
@@ -40,6 +41,7 @@
         <li class="tab col"><a href="#conversation">Conversation</a></li>
         <li class="tab col"><a href="#wired">Wired</a></li>
         <li class="tab col"><a href="#politico">Politico</a></li>
+        <li class="tab col"><a href="#npr">NPR</a></li>
       </ul>
     </div>
     <div id="axios" class="col s12 active">
@@ -217,12 +219,28 @@
           </div>
         </div>
       </div>
-
+    </div>
+    <div id="npr" class="col s12" style="display: none">
+      <div class='row content-row'>
+        <div id="stories-container-npr" class="col s12 m12 l12 section-stories-container">
+        </div>
+      </div>
+      <div id="preloader-wrapper-npr" class='row preloader-wrapper-container'>
+        <div class="preloader-wrapper big active ">
+          <div class="spinner-layer spinner-blue-only">
+            <div class="circle-clipper left">
+              <div class="circle"></div>
+            </div><div class="gap-patch">
+              <div class="circle"></div>
+            </div><div class="circle-clipper right">
+              <div class="circle"></div>
+            </div>
+          </div>
+        </div>
+      </div>
     </div>
   </div> <!-- row end -->
         
-
-
 
 <!--     <div class='row'>
       <a id="settings-button" class="waves-effect waves-light btn btn-floating"><i class="material-icons">settings</i></a>

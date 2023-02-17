@@ -6,6 +6,7 @@ let hasPhillyLoaded = false;
 let hasConversationLoaded = false;
 let hasWiredLoaded = false;
 let hasPoliticoLoaded = false;
+let hasNprLoaded = false;
 
 document.addEventListener("DOMContentLoaded", function(){
   
@@ -75,6 +76,12 @@ function getPage(hash){
     if(!hasPoliticoLoaded){
       getPolitico()
       hasPoliticoLoaded = true;
+    }
+    break;
+    case '#npr':
+    if(!hasNprLoaded){
+      getNpr()
+      hasNprLoaded = true;
     }
     break;
     default:
