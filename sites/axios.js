@@ -7,6 +7,7 @@ $('#axios .content-row').css('display', 'none');
 
 //get data
 fetch('https://xml-json-alpha.vercel.app/api?xml=https://www.axios.com/sitemaps/news.xml')
+// fetch('http://localhost:8000/api?xml=https://www.axios.com/sitemaps/news.xml')
 .then(response => response.json())
 .then(data => {
   let allLinks = data.urlset.url;

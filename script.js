@@ -9,7 +9,6 @@ let hasPoliticoLoaded = false;
 let hasNprLoaded = false;
 
 document.addEventListener("DOMContentLoaded", function(){
-  
   var elem = document.querySelector('.tabs');
   var instance = M.Tabs.init(elem, {});
 
@@ -33,6 +32,7 @@ function getPage(hash){
     case '#axios':
     if(!hasAxiosLoaded){
       getAxiosPage()
+      // makeAxiosGet();
       hasAxiosLoaded = true;
     }
     break;
@@ -88,6 +88,21 @@ function getPage(hash){
     console.log("default");
   }
 }
+
+
+// function makeAxiosGet(){
+//   console.log('hello')
+//   axios({
+//     method: 'get',
+//     url: "https://www.axios.com/sitemaps/news.xml",
+//   })
+//   .then(function (response) {
+//     console.log(response)
+//   })
+//   .catch((e) => {
+//     console.log(e);
+//   });
+// }
 
 
 

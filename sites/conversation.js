@@ -10,11 +10,7 @@ function getConversation(){
     fetch('https://xml-json-alpha.vercel.app/api?xml=https://theconversation.com/au/sitemap_news.xml'),
   ])
   // Promise.all([
-  //   fetch('https://api.factmaven.com/xml-to-json/?xml=https://theconversation.com/us/sitemap_news.xml'),
-  //   fetch('https://api.factmaven.com/xml-to-json/?xml=https://theconversation.com/ca/sitemap_news.xml'),
-  //   fetch('https://api.factmaven.com/xml-to-json/?xml=https://theconversation.com/uk/sitemap_news.xml'),
-  //   fetch('https://api.factmaven.com/xml-to-json/?xml=https://theconversation.com/africa/sitemap_news.xml'),
-  //   fetch('https://api.factmaven.com/xml-to-json/?xml=https://theconversation.com/au/sitemap_news.xml'),
+  //   fetch('http://localhost:8000/api?xml=https://theconversation.com/us/sitemap_news.xml')
   // ])
   .then(function (responses) {
     return Promise.all(responses.map(function (response) {

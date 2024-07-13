@@ -4,8 +4,8 @@ function getWapoXML(){
   $('#preloader-wrapper-wapo .preloader-wrapper').css('display', 'block')
   $('#preloader-wrapper-wapo #wapo-retry-button').css('display', 'none')
 
-fetch('https://xml-json-alpha.vercel.app/api?xml=https://www.washingtonpost.com/arcio/news-sitemap/')
-  // fetch('https://api.factmaven.com/xml-to-json/?xml=https://www.washingtonpost.com/arcio/news-sitemap/?size=250&offset=0')
+fetch('https://xml-json-alpha.vercel.app/api?xml=https://www.washingtonpost.com/sitemaps/news-sitemap.xml.gz')
+  // fetch('http://localhost:8000/api?xml=https://www.washingtonpost.com/sitemaps/news-sitemap.xml.gz')
   .then(response => response.json())
   .then(data => {
     let allLinks = data.urlset.url;
