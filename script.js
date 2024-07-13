@@ -7,6 +7,7 @@ let hasConversationLoaded = false;
 let hasWiredLoaded = false;
 let hasPoliticoLoaded = false;
 let hasNprLoaded = false;
+let hasAthleticLoaded = false;
 
 document.addEventListener("DOMContentLoaded", function(){
   var elem = document.querySelector('.tabs');
@@ -82,6 +83,12 @@ function getPage(hash){
     if(!hasNprLoaded){
       getNpr()
       hasNprLoaded = true;
+    }
+    break;
+    case '#athletic':
+    if(!hasAthleticLoaded){
+      getAthletic()
+      hasAthleticLoaded = true;
     }
     break;
     default:
